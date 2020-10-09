@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="main.css">
+
+  <title>DDTM Arras - Signature</title>
+</head>
+<body>
+  <div id="app" class="container">
+    <div class="breadcrumb">
+      <h1>DDTM Arras - générateur de signature pour mail</h1>
+    </div>
+    <div class="row">
+      <!-- ================ TEXTE ================ -->
+      <div class="col-md-5">
+
+        <div class="input-group mb-3">
+          <input v-model="prenom" type="text" class="form-control" placeholder="Prénom" aria-label="Prénom">
+          <input v-model="nom" type="text" class="form-control" placeholder="NOM" aria-label="NOM">
+        </div>
+
+        <div class="input-group mb-3">
+        <textarea v-model="fonction" class="form-control form-control-sm" placeholder="Votre fonction...
+sur deux ligne éventuellement."></textarea>
+        </div>
+
+        <div class="input-group mb-3">
+          <input v-model="fix" type="text" class="form-control" placeholder="Téléphone fixe au bureau" aria-label="Prénom">
+          <input v-model="mobile" type="text" class="form-control" placeholder="Téléphone portable" aria-label="NOM">
+        </div>
+
+        <!-- <button v-if="filename" @click="DownloadTextFile" class="btn" v-bind:class="{ 'btn-success' : valide, 'btn-danger' : !valide }">Télécharger «  »</button> -->
+      </div>
+      <!-- ================ RESULTATS ================ -->
+      <div id="result" v-show="!code" class="col-md-4">
+<div>
+  <p>
+    <b>{{prenom}} {{nom.toUpperCase()}}</b><br>
+    <span style="font-size:0.85em">{{{ br(fonction) }}}</span>
+  </p>
+  <p style="font-size:0.85em">
+    100 avenue Winston Churchill<br>
+    CS 10007 &ndash; 62022 ARRAS Cedex<br>
+    Tél : {{fix}} / {{mobile}}<br>
+    <b>www.pas-de-calais.gouv.fr</b>
+  </p>
+  <img src="www.ddtm-arras.github.io/logo/images/DDTMsig.svg" style="height:5em">
+</div>
+      </div>
+      <pre v-show="code" class="col-md-4">{{signature}}</pre>
+      <!-- ================ ACTION ================ -->
+      <div class="col-md-3">
+        <button type="button" class="btn btn btn-outline-secondary btn-sm m-3" @click="toggleCode">Afficher le code HTML</button>
+        <button type="button" class="btn btn-success m-3" data-clipboard-text="{{signature}}">Copier</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@1.0.28/dist/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
