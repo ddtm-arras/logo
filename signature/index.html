@@ -25,7 +25,7 @@
 
         <div class="input-group mb-3">
         <textarea v-model="fonction" class="form-control form-control-sm" placeholder="Votre fonction...
-sur deux ligne éventuellement."></textarea>
+sur deux lignes éventuellement."></textarea>
         </div>
 
         <div class="input-group mb-3">
@@ -54,7 +54,7 @@ sur deux ligne éventuellement."></textarea>
       <pre v-show="code" class="col-md-4">{{signature}}</pre>
       <!-- ================ ACTION ================ -->
       <div class="col-md-3">
-        <button type="button" class="btn btn btn-outline-secondary btn-sm m-3" @click="toggleCode">Afficher le code HTML</button>
+        <button type="button" class="btn btn btn-sm m-3" :class="{'btn-outline-secondary':!code, 'btn-secondary':code}" @click="toggleCode">Afficher le code HTML</button>
         <button type="button" class="btn btn-success m-3" data-clipboard-text="{{signature}}">Copier</button>
       </div>
     </div>
