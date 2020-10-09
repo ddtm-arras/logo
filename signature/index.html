@@ -19,7 +19,7 @@
       <div class="col-md-5">
 
         <div class="input-group mb-3">
-          <input v-model="prenom" type="text" class="form-control" placeholder="Prénom" aria-label="Prénom" autofocus>
+          <input v-model="prenom" type="text" class="form-control" placeholder="Prénom" aria-label="Prénom">
           <input v-model="nom" type="text" class="form-control" placeholder="NOM" aria-label="NOM">
         </div>
 
@@ -92,14 +92,14 @@ sur deux lignes éventuellement."></textarea>
     Tél : {{fix}} / {{mobile}}<br>
     <b>www.pas-de-calais.gouv.fr</b>
   </p>
-  <img v-if="imgType=='extSVG'" src="https://ddtm-arras.github.io/logo/images/DDTMsig.svg" style="height:5em"><img v-if="imgType=='intSVG'" src="data:image/svg+xml;base64,{{logoDDTMsvg}}" style="height:5em"><img v-if="imgType=='intPNG'" src="data:image/png;base64,{{logoDDTMpng}}" style="height:5em">
+  <img v-if="imgType=='extSVG'" src="https://ddtm-arras.github.io/logo/images/DDTMsig.svg" style="height:5em"><img v-if="imgType=='intSVG'" :src="'data:image/svg+xml;base64,'+logoDDTMsvg" style="height:5em"><img v-if="imgType=='intPNG'" :src="'data:image/png;base64, '+logoDDTMpng" style="height:5em">
 </div>
       </div>
       <pre v-show="code" class="col-md-4">{{signature}}</pre>
       <!-- ================ ACTION ================ -->
       <div class="col-md-3">
         <button type="button" class="btn btn btn-sm m-3" :class="{'btn-outline-secondary':!code, 'btn-secondary':code}" @click="toggleCode">Afficher le code HTML</button>
-        <button type="button" class="btn btn-success m-3" data-clipboard-text="{{signature}}">Copier</button>
+        <button type="button" class="btn m-3" :class="{'btn-success':copied, 'btn-primary':!copied }" @click="copied=true" data-clipboard-text="{{signature}}">{{copied ? "La signature est copiés" : "Copier la signature"}}</button>
       </div>
     </div>
   </div>

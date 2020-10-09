@@ -1,8 +1,8 @@
+[v-cloak] {display: none}
+
 #result {
     border-left: 1px solid lightgray;
 }
-
-
 
 pre{
   background-color: lightgray;

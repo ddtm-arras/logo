@@ -6,20 +6,16 @@
 var app = new Vue({
   el: '#app',
   data: {
-    prenom   : '',
-    nom      : '',
-    fonction : '',
-    fix      : '',
-    mobile   : '',
-    logoDDTMsvg : logoDDTMsvg,
-    logoDDTMpng : logoDDTMpng,
-    code     : false
-  },
-  computed: {
-    signature: function () {
-      var activateon = this.prenom+this.nom+this.fonction+this.fix+this.mobile+this.imgType;
-      return this.$el.querySelector("#result").innerHTML;
-    }
+    prenom:      '',
+    nom:         '',
+    fonction:    '',
+    fix:         '',
+    mobile:      '',
+    logoDDTMsvg: logoDDTMsvg,
+    logoDDTMpng: logoDDTMpng,
+    signature:   null,
+    copied:      false,
+    code:        false
   },
   methods: {
     br: function (txt) {
@@ -35,6 +31,14 @@ var app = new Vue({
   ready: function () {
     new ClipboardJS('.btn');
     this.$el.querySelector("input").focus();
+    this.$watch(
+      ()=>this.prenom+this.nom+this.fonction+this.fix+this.mobile+this.imgType,
+      function(nv,ov){
+        this.signature = this.$el.querySelector("#result").innerHTML;
+        this.copied = false;
+      },
+      { immediate: true }
+    );
   }
 })
 
