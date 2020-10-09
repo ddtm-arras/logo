@@ -11,11 +11,13 @@ var app = new Vue({
     fonction : '',
     fix      : '',
     mobile   : '',
+    logoDDTMsvg : logoDDTMsvg,
+    logoDDTMpng : logoDDTMpng,
     code     : false
   },
   computed: {
     signature: function () {
-      var activateon = this.prenom+this.nom+this.fonction+this.fix+this.mobile;
+      var activateon = this.prenom+this.nom+this.fonction+this.fix+this.mobile+this.imgType;
       return this.$el.querySelector("#result").innerHTML;
     }
   },

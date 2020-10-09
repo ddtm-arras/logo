@@ -33,6 +33,50 @@ sur deux lignes éventuellement."></textarea>
           <input v-model="mobile" type="text" class="form-control" placeholder="Téléphone portable" aria-label="NOM">
         </div>
 
+        <select v-model="imgType" class="form-control mb-2">
+          <option value="extSVG"  selected >Lien vers l'image SVG (0Ko)</option>
+          <option value="intPNG">Image incorporé en PNG (8Ko)</option>
+          <option value="intSVG">Image incorporé en SVG (28Ko)</option>
+        </select>
+        <div v-if="imgType=='extSVG'">
+          <b>Avantages:</b>
+          <ul>
+            <li>C'est le mode le plus écologique.</li>
+            <li>L'image n'est stockée ni dans la boite d'envoie, ni dans la boite de récéption du déstintaire.</li>
+            <li>La qualité des images SVG est impécable quelque soit la résolution.</li>
+          </ul>
+          <b>Inconvenient:</b>
+          <ul>
+            <li>Si le client de messagerie est configuré à ne pas télécharger les images, le logo ne sera pas visible (le reste de la signature si).</li>
+          </ul>
+        </div>
+        <div v-if="imgType=='intSVG'">
+          <b>Avantages:</b>
+          <ul>
+            <li>La qualité des images SVG est impécable quelque soit la résolution.</li>
+            <li>Le logo est visible toujours par le destinataire (sauf s'il a interdit les messages en html).</li>
+          </ul>
+          <b>Inconvenient:</b>
+          <ul>
+            <li>C'est le mode le moins écologique.</li>
+            <li>L'image est stockée dans la boite d'envoie et dans la boite de récéption du déstintaire.</li>
+            <li>L'image SVG est 4 fois plus grand que le PNG.</li>
+          </ul>
+        </div>
+        <div v-if="imgType=='intPNG'">
+          <b>Avantages:</b>
+          <ul>
+            <li>Le logo est visible toujours par le destinataire (sauf s'il a interdit les messages en html).</li>
+            <li>L'image PNG est 4 fois plus petit que le SVG.</li>
+          </ul>
+          <b>Inconvenient:</b>
+          <ul>
+            <li>Ce mode n'est pas écologique.</li>
+            <li>L'image est stockée dans la boite d'envoie et dans la boite de récéption du déstintaire.</li>
+            <li>La qualité de l'images PNG n'est pas aussi bonne que celle du SVG.</li>
+          </ul>
+
+        </div>
         <!-- <button v-if="filename" @click="DownloadTextFile" class="btn" v-bind:class="{ 'btn-success' : valide, 'btn-danger' : !valide }">Télécharger «  »</button> -->
       </div>
       <!-- ================ RESULTATS ================ -->
@@ -48,7 +92,7 @@ sur deux lignes éventuellement."></textarea>
     Tél : {{fix}} / {{mobile}}<br>
     <b>www.pas-de-calais.gouv.fr</b>
   </p>
-  <img src="https://ddtm-arras.github.io/logo/images/DDTMsig.svg" style="height:5em">
+  <img v-if="imgType=='extSVG'" src="https://ddtm-arras.github.io/logo/images/DDTMsig.svg" style="height:5em"><img v-if="imgType=='intSVG'" src="data:image/svg+xml;base64,{{logoDDTMsvg}}" style="height:5em"><img v-if="imgType=='intPNG'" src="data:image/png;base64,{{logoDDTMpng}}" style="height:5em">
 </div>
       </div>
       <pre v-show="code" class="col-md-4">{{signature}}</pre>
@@ -61,6 +105,7 @@ sur deux lignes éventuellement."></textarea>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@1.0.28/dist/vue.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+  <script src="base64.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
