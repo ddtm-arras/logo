@@ -10,7 +10,7 @@
   <title>DDTM Arras - Signature</title>
 </head>
 <body>
-  <div id="app" class="container">
+  <div id="app" class="container" v-cloak>
     <div class="breadcrumb">
       <h1>DDTM Arras - générateur de signature pour mail</h1>
     </div>
@@ -19,7 +19,7 @@
       <div class="col-md-5">
 
         <div class="input-group mb-3">
-          <input v-model="prenom" type="text" class="form-control" placeholder="Prénom" aria-label="Prénom">
+          <input v-model="prenom" type="text" class="form-control" placeholder="Prénom" aria-label="Prénom" autofocus>
           <input v-model="nom" type="text" class="form-control" placeholder="NOM" aria-label="NOM">
         </div>
 
