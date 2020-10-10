@@ -1,4 +1,4 @@
-# Logo DDTM d'Arras (Pas-de-Calais)
+# Logo du DDTM d'Arras (Pas-de-Calais)
 
 [Ce dépôt](https://github.com/ddtm-arras/logo) contient le logo de la Préfecture du Pas-de-Calais, ainsi que du DDTM d'Arras sous différents formats.
 
