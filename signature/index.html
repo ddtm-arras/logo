@@ -36,7 +36,7 @@ sur deux lignes éventuellement."></textarea>
           <select v-model="imgType" class="form-control mb-2">
             <option value="extSVG"  selected >Lien vers l'image SVG [&thinsp;0&thinsp;Ko&thinsp;]</option>
             <option value="intPNG">Image incorporé en PNG [&thinsp;8&thinsp;Ko&thinsp;]</option>
-            <option value="intSVG">Image incorporé en SVG [&thinsp;28&thinsp;Ko&thinsp;]</option>
+            <option value="intSVG">Image incorporé en SVG [&thinsp;20&thinsp;Ko&thinsp;]</option>
           </select>
           <div v-if="imgType=='extSVG'">
             <b>Avantages:</b>
@@ -60,7 +60,7 @@ sur deux lignes éventuellement."></textarea>
             <ul>
               <li>C'est le mode le moins écologique.</li>
               <li>L'image est stockée dans la boite d'envoie et dans la boite de récéption du déstintaire.</li>
-              <li>L'image SVG est 4 fois plus grand que le PNG.</li>
+              <li>L'image SVG est 2,5 fois plus grand que le PNG.</li>
             </ul>
           </div>
           <div v-if="imgType=='intPNG'">
@@ -93,14 +93,14 @@ sur deux lignes éventuellement."></textarea>
     Tél : {{fix}} / {{mobile}}<br>
     <b>www.pas-de-calais.gouv.fr</b>
   </p>
-  <img v-if="imgType=='extSVG'" src="https://ddtm-arras.github.io/logo/images/DDTMsig.svg" style="height:5em"><img v-if="imgType=='intSVG'" :src="'data:image/svg+xml;base64,'+logoDDTMsvg" style="height:5em"><img v-if="imgType=='intPNG'" :src="'data:image/png;base64, '+logoDDTMpng" style="height:5em">
+  <img v-if="imgType=='extSVG'" src="https://ddtm-arras.github.io/logo/images/DDTMsig.svg" style="height:5em"><img v-if="imgType=='intSVG'" :src="'data:image/svg+xml,'+logoDDTMsvg" style="height:5em"><img v-if="imgType=='intPNG'" :src="'data:image/png;base64, '+logoDDTMpng" style="height:5em">
 </div>
       </div>
       <pre v-show="code" class="col-md-4">{{signature}}</pre>
       <!-- ================ ACTION ================ -->
       <div class="col-md-3">
         <button type="button" class="btn btn btn-sm m-3" :class="{'btn-outline-secondary':!code, 'btn-secondary':code}" @click="toggleCode">Afficher le code HTML</button>
-        <button type="button" class="btn m-3" :class="{'btn-success':copied, 'btn-primary':!copied }" @click="copied=true" data-clipboard-text="{{signature}}">{{copied ? "La signature est copiés" : "Copier la signature"}}</button>
+        <button type="button" class="btn m-3" :class="{'btn-success':copied, 'btn-primary':!copied }" @click="copied=true" data-clipboard-text="{{signature}}">{{copied ? "La signature est copiées" : "Copier la signature"}}</button>
       </div>
     </div>
   </div>
