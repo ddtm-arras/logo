@@ -94,7 +94,7 @@ Bureau / département (1 ou 2 lignes)"></textarea>
     Tél : {{fix}}{{ fix != "" && mobile != "" ? " / " : ""}}{{mobile}}<br>
     <b>www.pas-de-calais.gouv.fr</b>
   </p>
-  <img v-if="imgType=='extSVG'" src="https://ddtm-arras.github.io/logo/images/DDTMsig.svg" style="height:5em"><img v-if="imgType=='intSVG'" :src="'data:image/svg+xml,'+logoDDTMsvg" style="height:5em"><img v-if="imgType=='intPNG'" :src="'data:image/png;base64, '+logoDDTMpng" style="height:5em">
+  <img v-if="imgType=='extSVG'" src="https://ddtm62.github.io/logo/images/DDTMsig.svg" style="height:5em"><img v-if="imgType=='intSVG'" :src="'data:image/svg+xml,'+logoDDTMsvg" style="height:5em"><img v-if="imgType=='intPNG'" :src="'data:image/png;base64, '+logoDDTMpng" style="height:5em">
 </div>
       </div>
       <pre v-show="code" class="col-md-4">{{signature}}</pre>
