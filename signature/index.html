@@ -90,7 +90,7 @@ sur deux lignes éventuellement."></textarea>
   <p style="font-size:0.85em">
     100 avenue Winston Churchill<br>
     CS 10007 &ndash; 62022 ARRAS Cedex<br>
-    Tél : {{fix}} / {{mobile}}<br>
+    Tél : {{fix}}{{ fix != "" && mobile != "" ? " / " : ""}}{{mobile}}<br>
     <b>www.pas-de-calais.gouv.fr</b>
   </p>
   <img v-if="imgType=='extSVG'" src="https://ddtm-arras.github.io/logo/images/DDTMsig.svg" style="height:5em"><img v-if="imgType=='intSVG'" :src="'data:image/svg+xml,'+logoDDTMsvg" style="height:5em"><img v-if="imgType=='intPNG'" :src="'data:image/png;base64, '+logoDDTMpng" style="height:5em">
