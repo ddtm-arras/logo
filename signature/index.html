@@ -7,12 +7,13 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="main.css">
 
-  <title>DDTM Arras - Signature</title>
+  <title>DDTM du Pas-de-Calais - Signature</title>
 </head>
 <body>
   <div id="app" class="container" v-cloak>
     <div class="breadcrumb">
-      <h1>DDTM Arras - générateur de signature pour mail</h1>
+      <h1>Générateur de signature pour mail</h1>
+      <h2>DDTM du Pas-de-Calais</h2>
     </div>
     <div class="row">
       <!-- ================ TEXTE ================ -->
@@ -24,13 +25,13 @@
         </div>
 
         <div class="input-group mb-3">
-        <textarea v-model="fonction" class="form-control form-control-sm" placeholder="Votre fonction...
-sur deux lignes éventuellement."></textarea>
+        <textarea v-model="fonction" class="form-control form-control-sm" placeholder="Poste / fonction (1 ou 2 lignes)
+Bureau / département (1 ou 2 lignes)"></textarea>
         </div>
 
         <div class="input-group mb-3">
-          <input v-model="fix" type="text" class="form-control" placeholder="Téléphone fixe au bureau" aria-label="Prénom">
-          <input v-model="mobile" type="text" class="form-control" placeholder="Téléphone portable" aria-label="NOM">
+          <input v-model="fix" type="text" class="form-control" placeholder="Téléphone fixe" aria-label="Prénom">
+          <input v-model="mobile" type="text" class="form-control" placeholder="Téléphone portable pro" aria-label="NOM">
         </div>
         <div class="imagetype p-2">
           <select v-model="imgType" class="form-control mb-2">
@@ -42,40 +43,40 @@ sur deux lignes éventuellement."></textarea>
             <b>Avantages :</b>
             <ul>
               <li>C'est le mode le plus écologique.</li>
-              <li>L'image n'est stockée ni dans la boite d'envoi, ni dans la boite de réception du destinataire.</li>
+              <li>L'image n'est stockée ni dans la boîte d'envoi, ni dans la boîte de réception du destinataire.</li>
               <li>La qualité des images SVG est impeccable quelle que soit la résolution.</li>
             </ul>
             <b>Inconvénient :</b>
             <ul>
-              <li>Si le client de messagerie est configuré à ne pas télécharger les images, le logo ne sera pas visible (le reste de la signature si).</li>
-            </ul>
-          </div>
-          <div v-if="imgType=='intSVG'">
-            <b>Avantages :</b>
-            <ul>
-              <li>La qualité des images SVG est impeccable quelle que soit la résolution.</li>
-              <li>Le logo est visible toujours par le destinataire (sauf s'il a interdit les messages en html).</li>
-            </ul>
-            <b>Inconvénients :</b>
-            <ul>
-              <li>C'est le mode le moins écologique.</li>
-              <li>L'image est stockée dans la boite d'envoi et dans la boite de réception du destinataire.</li>
-              <li>L'image SVG est 2,5 fois plus grand que le PNG.</li>
+              <li>Si le client de messagerie est configuré pour ne pas télécharger les images, le logo ne sera pas visible (le reste de la signature si).</li>
             </ul>
           </div>
           <div v-if="imgType=='intPNG'">
             <b>Avantages :</b>
             <ul>
-              <li>Le logo est visible toujours par le destinataire (sauf s'il a interdit les messages en html).</li>
-              <li>L'image PNG est 4 fois plus petit que le SVG.</li>
+              <li>Le logo est toujours visible par le destinataire (sauf s'il a interdit les messages en html).</li>
+              <li>L'image PNG est 2,5 fois plus petite que l'image SVG.</li>
             </ul>
             <b>Inconvénients :</b>
             <ul>
               <li>Ce mode n'est pas écologique.</li>
-              <li>L'image est stockée dans la boite d'envoi et dans la boite de réception du destinataire.</li>
-              <li>La qualité de l'image PNG n'est pas aussi bonne que celle du SVG.</li>
+              <li>L'image est stockée dans la boîte d'envoi et dans la boîte de réception du destinataire.</li>
+              <li>La qualité de l'image PNG n'est pas aussi bonne que celle de l'image SVG.</li>
             </ul>
 
+          </div>
+          <div v-if="imgType=='intSVG'">
+            <b>Avantages :</b>
+            <ul>
+              <li>La qualité des images SVG est impeccable quelle que soit la résolution.</li>
+              <li>Le logo est toujours visible par le destinataire (sauf s'il a interdit les messages en html).</li>
+            </ul>
+            <b>Inconvénients :</b>
+            <ul>
+              <li>C'est le mode le moins écologique.</li>
+              <li>L'image est stockée dans la boîte d'envoi et dans la boîte de réception du destinataire.</li>
+              <li>L'image SVG est 2,5 fois plus grande que l'image PNG.</li>
+            </ul>
           </div>
         </div>
         <!-- <button v-if="filename" @click="DownloadTextFile" class="btn" v-bind:class="{ 'btn-success' : valide, 'btn-danger' : !valide }">Télécharger «  »</button> -->
@@ -89,7 +90,7 @@ sur deux lignes éventuellement."></textarea>
   </p>
   <p style="font-size:0.85em">
     100 avenue Winston Churchill<br>
-    CS 10007 &ndash; 62022 ARRAS Cedex<br>
+    CS 10007 &ndash; 62&#8239;022 ARRAS Cedex<br>
     Tél : {{fix}}{{ fix != "" && mobile != "" ? " / " : ""}}{{mobile}}<br>
     <b>www.pas-de-calais.gouv.fr</b>
   </p>
