@@ -11,7 +11,7 @@
 </head>
 <body>
   <div id="app" class="container" v-cloak>
-    <div class="breadcrumb">
+    <div class="jumbotron">
       <h1>Générateur de signature pour mail</h1>
       <h2>DDTM du Pas-de-Calais</h2>
     </div>
@@ -35,7 +35,7 @@ Bureau / département (1 ou 2 lignes)"></textarea>
         </div>
         <div class="imagetype p-2">
           <select v-model="imgType" class="form-control mb-2">
-            <option value="extSVG"  selected >Lien vers l'image SVG [&thinsp;0&thinsp;Ko&thinsp;]</option>
+            <option value="extSVG">Lien vers l'image SVG [&thinsp;0&thinsp;Ko&thinsp;]</option>
             <option value="intPNG">Image incorporé en PNG [&thinsp;8&thinsp;Ko&thinsp;]</option>
             <option value="intSVG">Image incorporé en SVG [&thinsp;20&thinsp;Ko&thinsp;]</option>
           </select>
