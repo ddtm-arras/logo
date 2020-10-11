@@ -1,3 +1,5 @@
+![logo de la DDTM du Pas-de-Calais](https://ddtm62.github.io/logo/images/DDTM.svg)
+
 # Logos pour la DDTM du Pas-de-Calais
 
 [Ce dépôt](https://github.com/ddtm62/logo) contient le logo de la Préfecture du Pas-de-Calais, ainsi que de la DDTM du Pas-de-Calais sous différents formats.
