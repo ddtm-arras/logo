@@ -11,7 +11,7 @@ var app = new Vue({
     fonction:    '',
     fix:         '',
     mobile:      '',
-    imgType:     'extSVG',
+    imgType:     'extPNG',
     logoDDTMsvg: logoDDTMsvg,
     logoDDTMpng: logoDDTMpng,
     signature:   null,
