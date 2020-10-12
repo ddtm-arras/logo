@@ -54,13 +54,13 @@ Vous pouvez trouver quelques liens directs vers les fichiers les plus utilisés.
 Une page pour la création de la signature mail des agents de la DDTM est disponible à l'adresse<br>
 [https://ddtm62.github.io/logo/signature](https://ddtm62.github.io/logo/signature/).
 
-## Nomination des fichiers
+## Conventions de dénomination des fichiers
 
 - `PPdC` : Préfecture du Pas-de-Calais
 - `DDTM` : Direction départementale des territoires et de la mer
 - `XXXXszp` : sont les versions sans zone de protection autour du logo
-- `XXXX_nb` : et - `XXXXszp_nb` : sont les versions en niveaux des gris (destinées à l'impression sans couleurs)
-- `XXXX_deuil` : et - `XXXXszp_deuil` : sont les versions adaptée aux périodes de deuil (qui drape la Marianne de noir)
+- `XXXX_nb` et `XXXXszp_nb` : sont les versions en niveaux des gris (destinées à l'impression sans couleurs)
+- `XXXX_deuil` et `XXXXszp_deuil` : sont les versions adaptées aux périodes de deuil (qui drape la Marianne de noir)
 - `XXXX_ddd.png` et `XXXX_ddd.png` : sont des images matricielles avec hauteur `ddd`
 
 
