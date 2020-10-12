@@ -2,7 +2,7 @@
 
 # Logos pour la DDTM du Pas-de-Calais
 
-[Ce dépôt](https://github.com/ddtm62/logo) contient le logo de la Préfecture du Pas-de-Calais, ainsi que de la DDTM du Pas-de-Calais sous différents formats.
+[Ce dépôt](https://github.com/ddtm62/logo) contient le logo de la Préfecture du Pas-de-Calais, ainsi que de la DDTM du Pas-de-Calais, sous différents formats.
 
 Les formats les plus utilisés sont :
 
@@ -58,10 +58,20 @@ Une page pour la création de la signature mail des agents de la DDTM est dispon
 
 - `PPdC` : Préfecture du Pas-de-Calais
 - `DDTM` : Direction départementale des territoires et de la mer
-- `XXXXszp` : sont les versions sans zone de protection autour du logo
-- `XXXX_nb` et `XXXXszp_nb` : sont les versions en niveaux des gris (destinées à l'impression sans couleurs)
-- `XXXX_deuil` et `XXXXszp_deuil` : sont les versions adaptées aux périodes de deuil (qui drape la Marianne de noir)
-- `XXXX_ddd.png` et `XXXX_ddd.png` : sont des images matricielles avec hauteur `ddd`
+- `XXXXszp` : versions sans zone de protection autour du logo
+- `XXXX_nb` et `XXXXszp_nb` : versions en niveaux des gris (destinées à l'impression sans couleurs)
+- `XXXX_deuil` et `XXXXszp_deuil` : versions adaptées aux périodes de deuil (Marianne drapée de noir)
+- `XXXX_ddd.png` et `XXXX_ddd.png` : images matricielles avec hauteur `ddd`
 
+## Dimensions des logos
 
+Si on note `x` la hauteur de la Marianne, les logos sont hauts de `23x/3 ≈ 7.67x`, et les logos sans la zone de sécurité sont hauts de `17x/3 ≈ 5.67x`. En règle générale, sur un support en paysage, la Marianne est de taille `hauteur/70`, donc le logo est de taille `hauteur × 23/210`. Et en portrait, la Marianne est de taille `largeur/80`, donc le logo est de taille `hauteur × 23/240`. Ainsi la correspondance entre la hauteur de la Marianne et la hauteur des logos est :
+
+|  Utilisation   | Marianne | Logo avec marges | Logo sans marges |
+|:--------------:|:--------:|:----------------:|:----------------:|
+| signature mail |  10 px   |      78 px       |      57 px       |
+|  A5 portrait   |   3 mm   |      23 mm       |      17 mm       |
+|   A5 paysage   |  2,6 mm  |     20,1 mm      |     14,9 mm      |
+|  A4 portrait   | 4,25 mm  |     32,5 mm      |      24 mm       |
+|   A4 paysage   |  3,7 mm  |     28,4 mm      |      21 mm       |
 
