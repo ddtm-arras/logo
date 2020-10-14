@@ -59,7 +59,7 @@ Bureau / département (1 ou 2 lignes)"></textarea>
               </ul>
               <b>Inconvénients :</b>
               <ul>
-                <li>Ce mode <b>n'est pas très écologique</b> car'image est stockée dans la boîte d'envoi et dans la boîte de réception du destinataire.</li>
+                <li>Ce mode <b>n'est pas très écologique</b> car l'image est stockée dans la boîte d'envoi et dans la boîte de réception du destinataire.</li>
                 <li>La qualité de l'image PNG n'est pas aussi bonne que celle de l'image SVG.</li>
               </ul>
             </div>
@@ -70,15 +70,15 @@ Bureau / département (1 ou 2 lignes)"></textarea>
       <!-- ================ RESULTATS ================ -->
       <div id="result" v-show="!code" class="col-md-4">
 <div>
-  <p>
+  <p style="font-size:1rem">
     <b>{{title(prenom)}} {{nom.toUpperCase()}}</b><br>
-    <span style="font-size:0.85em">{{{ br(fonction) }}}</span>
+    <span style="font-size:0.85rem">{{{ br(fonction) }}}</span>
   </p>
-  <p style="font-size:0.85em">
+  <p style="font-size:0.85rem">
     100 avenue Winston Churchill<br>
     CS 10007 &ndash; 62&#8239;022 ARRAS Cedex<br>
-    Tél : {{fix}}{{ fix != "" && mobile != "" ? " / " : ""}}{{mobile}}<br>
-    <b><a>www.pas-de-calais.gouv.fr</a></b><br>
+    Tél : <a v-if="fix" :href="'tel:'+fix" style="color:black;text-decoration:none;font-size:0.85rem">{{fix}}</a>{{ fix != "" && mobile != "" ? " / " : ""}}<a v-if="mobile" :href="'tel:'+mobile" style="color:black;text-decoration:none;font-size:0.85rem">{{mobile}}</a><br>
+    <b><a href="https://www.pas-de-calais.gouv.fr/Services-de-l-Etat/Les-Services-de-l-Etat/DDTM" style="color:black;text-decoration:none;font-size:0.85rem">www.pas-de-calais.gouv.fr</a></b><br>
   </p>
   <picture v-if="imgType=='ext'" style="height:80px">
     <source type="image/svg+xml" srcset="https://ddtm62.github.io/logo/images/DDTMszp.svg">
