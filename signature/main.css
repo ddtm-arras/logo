@@ -12,6 +12,9 @@ pre{
 .imagetype {
     background-color: #e9ecef;
 }
+.imagehelp {
+  font-size: .84em;
+}
 
 @media (min-width: 576px) {
   .jumbotron {

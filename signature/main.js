@@ -3,6 +3,7 @@
 
 
 
+
 var app = new Vue({
   el: '#app',
   data: {
@@ -11,8 +12,7 @@ var app = new Vue({
     fonction:    '',
     fix:         '',
     mobile:      '',
-    imgType:     'extPNG',
-    logoDDTMsvg: logoDDTMsvg,
+    imgType:     'ext',
     logoDDTMpng: logoDDTMpng,
     signature:   null,
     copied:      false,

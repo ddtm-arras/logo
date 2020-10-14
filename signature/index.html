@@ -35,63 +35,34 @@ Bureau / département (1 ou 2 lignes)"></textarea>
         </div>
         <div class="imagetype p-2">
           <select v-model="imgType" class="form-control mb-2">
-            <option value="extPNG">Lien vers l'image PNG [&thinsp;0&thinsp;Ko&thinsp;]</option>
+            <option value="ext">Lien vers l'image SVG/PNG [&thinsp;0&thinsp;Ko&thinsp;]</option>
             <option value="intPNG">Image incorporé en PNG [&thinsp;3&thinsp;Ko&thinsp;]</option>
-            <option value="extSVG">Lien vers l'image SVG [&thinsp;0&thinsp;Ko&thinsp;]</option>
-            <option value="intSVG">Image incorporé en SVG [&thinsp;20&thinsp;Ko&thinsp;]</option>
           </select>
-          <div v-if="imgType=='extPNG'">
-            <b>Avantages :</b>
-            <ul>
-              <li>C'est le mode le plus écologique.</li>
-              <li>L'image n'est stockée ni dans la boîte d'envoi, ni dans la boîte de réception du destinataire.</li>
-              <li>L'image PNG est compatible avec tous les logiciels de mails.</li>
-            </ul>
-            <b>Inconvénients :</b>
-            <ul>
-              <li>La qualité de l'image PNG n'est pas aussi bonne que celle de l'image SVG.</li>
-              <li>Si le client de messagerie est configuré pour ne pas télécharger les images, le logo ne sera pas visible (le reste de la signature si).</li>
-            </ul>
-          </div>
-          <div v-if="imgType=='intPNG'">
-            <b>Avantages :</b>
-            <ul>
-              <li>Le logo est toujours visible par le destinataire (sauf s'il a interdit les messages en html).</li>
-              <li>L'image PNG est 7 fois plus petite que l'image SVG.</li>
-            </ul>
-            <b>Inconvénients :</b>
-            <ul>
-              <li>Ce mode n'est pas écologique.</li>
-              <li>L'image est stockée dans la boîte d'envoi et dans la boîte de réception du destinataire.</li>
-              <li>La qualité de l'image PNG n'est pas aussi bonne que celle de l'image SVG.</li>
-            </ul>
-          </div>
-          <div v-if="imgType=='extSVG'">
-            <b>Avantages :</b>
-            <ul>
-              <li>C'est un mode est très écologique.</li>
-              <li>L'image n'est stockée ni dans la boîte d'envoi, ni dans la boîte de réception du destinataire.</li>
-              <li>La qualité des images SVG est impeccable quelle que soit la résolution.</li>
-            </ul>
-            <b>Inconvénients :</b>
-            <ul>
-              <li>Si le client de messagerie est configuré pour ne pas télécharger les images, le logo ne sera pas visible (le reste de la signature si).</li>
-              <li>L'image SVG n'est pas compatible avec certains logiciels de mails (tels GMail, <a href="https://css-tricks.com/a-guide-on-svg-support-in-email/">voir</a>).</li>
-            </ul>
-          </div>
-          <div v-if="imgType=='intSVG'">
-            <b>Avantages :</b>
-            <ul>
-              <li>La qualité des images SVG est impeccable quelle que soit la résolution.</li>
-              <li>Le logo est toujours visible par le destinataire, s'il utilise un logiciel compatibles (tels le courrielleur Mélanie, ou Thunderbird).</li>
-            </ul>
-            <b>Inconvénients :</b>
-            <ul>
-              <li>C'est le mode le moins écologique.</li>
-              <li>L'image est stockée dans la boîte d'envoi et dans la boîte de réception du destinataire.</li>
-              <li>L'image SVG est 7 fois plus grande que l'image PNG.</li>
-              <li>L'image SVG n'est pas compatible avec certains logiciels de mails (tels GMail, <a href="https://css-tricks.com/a-guide-on-svg-support-in-email/">voir</a>).</li>
-            </ul>
+          <div class="imagehelp">
+            <div v-if="imgType=='ext'">
+              <b>Avantages :</b>
+              <ul>
+                <li>C'est mode <b>est écologique</b> car l'image n'est stockée ni dans la boîte d'envoi, ni dans la boîte de réception du destinataire.</li>
+                <li>Ce mode utilise SVG ou PNG en fonction de la compatibilité du logiciel mail.</li>
+              </ul>
+              <b>Inconvénients :</b>
+              <ul>
+                <li>Si le client de messagerie est configuré pour ne pas télécharger les images, le logo ne sera pas visible (le reste de la signature si).</li>
+                <li>Il est possible qu'avec des clients mails très anciens ça ne fonctionne pas bien.</li>
+              </ul>
+            </div>
+            <div v-if="imgType=='intPNG'">
+              <b>Avantages :</b>
+              <ul>
+                <li>Le logo est toujours visible par le destinataire (sauf s'il a interdit les messages en html).</li>
+                <li>L'image PNG est d'une petite taille.</li>
+              </ul>
+              <b>Inconvénients :</b>
+              <ul>
+                <li>Ce mode <b>n'est pas très écologique</b> car'image est stockée dans la boîte d'envoi et dans la boîte de réception du destinataire.</li>
+                <li>La qualité de l'image PNG n'est pas aussi bonne que celle de l'image SVG.</li>
+              </ul>
+            </div>
           </div>
         </div>
         <!-- <button v-if="filename" @click="DownloadTextFile" class="btn" v-bind:class="{ 'btn-success' : valide, 'btn-danger' : !valide }">Télécharger «  »</button> -->
@@ -107,9 +78,12 @@ Bureau / département (1 ou 2 lignes)"></textarea>
     100 avenue Winston Churchill<br>
     CS 10007 &ndash; 62&#8239;022 ARRAS Cedex<br>
     Tél : {{fix}}{{ fix != "" && mobile != "" ? " / " : ""}}{{mobile}}<br>
-    <b><a>www.pas-de-calais.gouv.fr</a></b>
+    <b><a>www.pas-de-calais.gouv.fr</a></b><br>
   </p>
-  <img v-if="imgType=='extPNG'" src="https://ddtm62.github.io/logo/images/DDTMszp.png" style="height:80px"><img v-if="imgType=='intPNG'" :src="'data:image/png;base64, '+logoDDTMpng" style="height:80px"><img v-if="imgType=='extSVG'" src="https://ddtm62.github.io/logo/images/DDTMszp.svg" style="height:80px"><img v-if="imgType=='intSVG'" :src="'data:image/svg+xml,'+logoDDTMsvg" style="height:80px">
+  <picture v-if="imgType=='ext'" style="height:80px">
+    <source type="image/svg+xml" srcset="https://ddtm62.github.io/logo/images/DDTMszp.svg">
+    <img src="https://ddtm62.github.io/logo/images/DDTMszp.png" style="height:80px">
+  </picture><img v-if="imgType=='intPNG'" :src="'data:image/png;base64, '+logoDDTMpng" style="height:80px">
 </div>
       </div>
       <pre v-show="code" class="col-md-4">{{signature}}</pre>
