@@ -33,6 +33,15 @@ Bureau / département (1 ou 2 lignes)"></textarea>
           <input v-model="fix" type="text" class="form-control" placeholder="Téléphone fixe" aria-label="Prénom">
           <input v-model="mobile" type="text" class="form-control" placeholder="Téléphone portable pro" aria-label="NOM">
         </div>
+
+        <div  class="input-group mb-3">
+          <select v-model="adr" class="form-control mb-2">
+            <option v-for="(siege, adresse) in adresses" :value="adresse">
+              {{siege}}
+            </option>
+          </select>
+        </div>
+
         <div class="imagetype p-2">
           <select v-model="imgType" class="form-control mb-2">
             <option value="ext">Lien vers l'image SVG/PNG [&thinsp;0&thinsp;Ko&thinsp;]</option>
@@ -75,8 +84,7 @@ Bureau / département (1 ou 2 lignes)"></textarea>
     <span style="font-size:0.85rem">{{{ br(fonction) }}}</span>
   </p>
   <p style="font-size:0.85rem">
-    100 avenue Winston Churchill<br>
-    CS 10007 &ndash; 62&#8239;022 ARRAS Cedex<br>
+    {{{ adr }}}<br>
     Tél : <a v-if="fix" :href="'tel:'+fix" style="color:black;text-decoration:none;font-size:0.85rem">{{fix}}</a>{{ fix != "" && mobile != "" ? " / " : ""}}<a v-if="mobile" :href="'tel:'+mobile" style="color:black;text-decoration:none;font-size:0.85rem">{{mobile}}</a><br>
     <b><a href="https://www.pas-de-calais.gouv.fr/Services-de-l-Etat/Les-Services-de-l-Etat/DDTM" style="color:black;text-decoration:none;font-size:0.85rem">www.pas-de-calais.gouv.fr</a></b><br>
   </p>
@@ -96,6 +104,7 @@ Bureau / département (1 ou 2 lignes)"></textarea>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@1.0.28/dist/vue.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+  <script src="adresses.js"></script>
   <script src="base64.js"></script>
   <script src="main.js"></script>
 </body>

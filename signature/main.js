@@ -12,8 +12,10 @@ var app = new Vue({
     fonction:    '',
     fix:         '',
     mobile:      '',
+    adresses:    adresses, // la liste des adresses stockée dans adresses.js
+    adr:         adresses[adr_defaut],
+    logoDDTMpng: logoDDTMpng, // le logo PNG encode en base64 stockéedans base64.js
     imgType:     'ext',
-    logoDDTMpng: logoDDTMpng,
     signature:   null,
     copied:      false,
     code:        false
