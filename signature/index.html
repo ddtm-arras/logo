@@ -74,17 +74,17 @@ Bureau / département (1 ou 2 lignes)"></textarea>
       </div>
       <!-- ================ RESULTATS ================ -->
       <div id="result" v-show="!code" class="col-md-4">
-<div>
-  <p style="font-size:1rem">
-    <b>{{title(prenom)}} {{nom.toUpperCase()}}</b><br>
+<div style="all:initial;display:block">
+  <p style="all:inherit;font-family:sans-serif;margin-bottom:1em;font-size:1rem;">
+    <b style="font-size:1rem">{{title(prenom)}} {{nom.toUpperCase()}}</b><br>
     <span style="font-size:0.85rem">{{{ br(fonction) }}}</span>
   </p>
-  <p style="font-size:0.85rem">
+  <p style="all:inherit;font-family:sans-serif;margin-bottom:1em;font-size:0.85rem;">
     {{{ adr }}}<br>
     Tél : <a v-if="fix" :href="'tel:'+fix" style="color:black;text-decoration:none;font-size:0.85rem">{{fix}}</a>{{ fix != "" && mobile != "" ? " / " : ""}}<a v-if="mobile" :href="'tel:'+mobile" style="color:black;text-decoration:none;font-size:0.85rem">{{mobile}}</a><br>
     <b><a href="https://www.pas-de-calais.gouv.fr/Services-de-l-Etat/Les-Services-de-l-Etat/DDTM" style="color:black;text-decoration:none;font-size:0.85rem">www.pas-de-calais.gouv.fr</a></b><br>
   </p>
-  <img :src="imgType=='extPNG' ? 'https://ddtm62.github.io/logo/images/DDTMszp.png' : 'data:image/png;base64, '+logoDDTMpng" style="height:80px">
+  <img :src="imgType=='extPNG' ? 'https://ddtm62.github.io/logo/images/DDTMszp.png' : 'data:image/png;base64, '+logoDDTMpng" style="all:inherit;margin-bottom:1rem;height:80px" :moz-do-not-send="imgType=='extPNG' && 'true'">
 </div>
       </div>
       <pre v-show="code" class="col-md-4">{{signature}}</pre>
