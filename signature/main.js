@@ -15,7 +15,6 @@ var app = new Vue({
     adresses:    adresses, // la liste des adresses stockée dans adresses.js
     adr:         adresses[adr_defaut],
     logoDDTMpng: logoDDTMpng, // le logo PNG encode en base64 stockéedans base64.js
-    imgType:     'intPNG',
     signature:   null,
     copied:      false,
     code:        false
@@ -40,7 +39,7 @@ var app = new Vue({
     new ClipboardJS('.btn');
     // surveiller toutes les variantes pour mettre à jour la signature
     this.$watch(
-      ()=>this.prenom+this.nom+this.fonction+this.fix+this.mobile+this.imgType,
+      ()=>this.prenom+this.nom+this.fonction+this.fix+this.mobile+this.adr,
       this.setSignature,
       { immediate: true }
     );
