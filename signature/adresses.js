@@ -5,7 +5,7 @@ adresses = miseEnForme(
     "CAPITAINERIE CALAIS": "Quai de marée<br>BP 80087 -- 62102 CALAIS Cedex",
     "DML BOULOGNE (au 92)": "92 quai Gambetta<br>BP 629 -- 62200 BOULOGNE-SUR-MER",
     "DML BOULOGNE (au 96)": "96 quai Gambetta<br>BP 629 -- 62200 BOULOGNE-SUR-MER",
-    "DML CALAIS": "22 rue Henri de Baillon<br>62100 CALAIS<br>",
+    "DML CALAIS": "22 rue Henri de Baillon<br>62100 CALAIS",
     "MONTREUIL": "705 rue de Paris, St Justin-Ecuires<br>BP 53 -- 62170 MONTREUIL-SUR-MER",
     "SIÈGE ARRAS": "100 avenue Winston Churchill<br>CS 10007 -- 62022 ARRAS Cedex"
   }
