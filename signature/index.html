@@ -42,6 +42,45 @@ Bureau / département (1 ou 2 lignes)"></textarea>
           </select>
         </div>
 
+        <div class="signaturetype p-2">
+          <select v-model="avecImage" class="form-control mb-2">
+            <option :value=false>signature textuelle</option>
+            <option :value=true>signature Marianne</option>
+          </select>
+          <div class="imagehelp">
+            <div v-if="!avecImage">
+              <b>Avantages :</b>
+              <div>
+                <ul>
+                  <li>Cette signature <b>est éco-responsable</b> car elle nécessite beaucoup moins de ressources.</li>
+                  <li>La signature est bien visible même si le client de messagerie est configuré pour ne pas télécharger les images.</li>
+                </ul>
+              </div>
+              <b>Inconvénient :</b>
+              <div>
+                <ul>
+                  <li>Cette signature ne respecte pas complètement la charte graphique de l'État, car sans logo Marianne. </li>
+                </ul>
+              </div>
+            </div>
+            <div v-if="avecImage">
+              <b>Avantage :</b>
+              <div>
+                <ul>
+                  <li>Cette signature respecte complètement la charte graphique de l'État.</li>
+                </ul>
+              </div>
+              <b>Inconvénient :</b>
+              <div>
+                <ul>
+                  <li>Cette signature <b>n'est pas très écologique</b> car l'image est stockée dans la boîte d'envoi et dans la boîte de réception du destinataire.</li>
+                  <li>Si le client de messagerie est configuré pour ne pas télécharger les images, on ne voit pas le texte présent sur l'image.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
       <!-- ================ RESULTATS ================ -->
       <div id="result" v-show="!code" class="col-md-4">
@@ -50,12 +89,13 @@ Bureau / département (1 ou 2 lignes)"></textarea>
     <b style="font-size:1rem;color:#000;">{{title(prenom)}} {{nom.toUpperCase()}}</b><br>
     <span style="font-size:0.85rem">{{{ br(fonction) }}}</span>
   </p>
-  <p style="all:inherit;font-family:sans-serif;margin-bottom:1em;font-size:0.85rem;">
+  <p style="all:inherit;font-family:sans-serif;margin-bottom:1em;font-size:0.85rem;"><template v-if="!avecImage">
+    DDTM du Pas-de-Calais<br></template>
     {{{ adr }}}<br>
     Tél : <a v-if="fix" :href="'tel:'+fix" style="color:black;text-decoration:none;font-size:0.85rem">{{fix}}</a>{{ fix != "" && mobile != "" ? " / " : ""}}<a v-if="mobile" :href="'tel:'+mobile" style="color:black;text-decoration:none;font-size:0.85rem">{{mobile}}</a><br>
     <b><a href="https://www.pas-de-calais.gouv.fr/Services-de-l-Etat/Les-Services-de-l-Etat/DDTM" style="color:black;text-decoration:none;font-size:0.85rem">www.pas-de-calais.gouv.fr</a></b><br>
   </p>
-  <img :src="'data:image/png;base64, '+logoDDTMpng" style="all:inherit;margin-bottom:1rem;height:80px">
+  <img v-if="avecImage" :src="'data:image/png;base64, '+logoDDTMpng" style="all:inherit;margin-bottom:1rem;height:80px">
 </div>
       </div>
       <pre v-show="code" class="col-md-4">{{signature}}</pre>
