@@ -82,8 +82,9 @@ Bureau / département (1 ou 2 lignes)"></textarea>
         </div>
 
       </div>
+      <dir class="col-md-7 row">
       <!-- ================ RESULTATS ================ -->
-      <div id="result" v-show="!code" class="col-md-4">
+      <div id="result" v-show="!code" class="col-lg-7">
 <div style="all:initial;display:block;color:#444;">
   <p style="all:inherit;font-family:sans-serif;margin-bottom:1em;font-size:1rem;">
     <b style="font-size:1rem;color:#000;">{{title(prenom)}} {{nom.toUpperCase()}}</b><br>
@@ -98,12 +99,31 @@ Bureau / département (1 ou 2 lignes)"></textarea>
   <img v-if="avecImage" :src="'data:image/png;base64, '+logoDDTMpng" style="all:inherit;margin-bottom:1rem;height:80px">
 </div>
       </div>
-      <pre v-show="code" class="col-md-4">{{signature}}</pre>
+      <pre v-show="code" class="col-lg-7">{{signature}}</pre>
       <!-- ================ ACTION ================ -->
-      <div class="col-md-3">
-        <button type="button" class="btn btn btn-sm m-3" :class="{'btn-outline-secondary':!code, 'btn-secondary':code}" @click="toggleCode">Afficher le code HTML</button>
+      <div class="col-lg-5">
+        <button type="button" class="btn btn btn-sm m-3" :class="{'btn-outline-secondary':!code, 'btn-secondary':code}" @click="toggleCode" v-show="debug">Afficher le code HTML</button>
         <button type="button" class="btn m-3" :class="{'btn-success':copied, 'btn-primary':!copied }" @click="copied=true" data-clipboard-text="{{signature}}">{{copied ? "La signature est copiée" : "Copier la signature"}}</button>
       </div>
+      <!-- ================ INSTRUCTIONS ================ -->
+      <div class="alert alert-success" v-if="copied">
+          Le code HTML de votre signature a été copié dans le presse-papier. Vous pouvez à présent :
+          <ol>
+            <li>
+              vous rendre dans les paramètres de votre compte <code>{{prenom.toLowerCase()}}.{{nom.toLowerCase()}}@pas-de-calais.gouv.fr</code> du logiciel de courrier,
+            </li>
+            <li>
+              coller (<kbd>Ctrl+V</kbd>) le code HTML copié dans le champ « Texte de signature »,
+            </li>
+            <li>
+              cocher la case « Utiliser HTML ».
+            </li>
+          </ol>
+            <em>
+              Si présente, la case « Apposer la signature à partir d'un fichier » <b>doit être décochée</b>.
+            </em>
+        </div>
+      </dir>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@1.0.28/dist/vue.min.js"></script>

@@ -18,6 +18,7 @@ var app = new Vue({
     logoDDTMpng: logoDDTMpng, // le logo PNG encode en base64 stockéedans base64.js
     signature:   null,
     copied:      false,
+    debug:       false,
     code:        false
   },
   methods: {
@@ -48,6 +49,8 @@ var app = new Vue({
     this.setSignature();
     // mettre le focus dans le premier champs à remplir (le Prénom)
     this.$el.querySelector("input").focus();
+    // le debug (bouton afficher le code html) est activé si en local
+    this.debug = (location.host == "" || location.host == "localhost" )
   }
 })
 
