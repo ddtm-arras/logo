@@ -19,7 +19,8 @@ var app = new Vue({
     signature:   null,
     copied:      false,
     debug:       false,
-    code:        false
+    code:        false,
+    web:         false
   },
   methods: {
     br: function (txt) {

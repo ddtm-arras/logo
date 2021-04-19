@@ -17,7 +17,7 @@
     </div>
     <div class="row">
       <!-- ================ TEXTE ================ -->
-      <div class="col-md-5">
+      <div class="col-lg-5">
 
         <div class="input-group mb-3">
           <input v-model="prenom" type="text" class="form-control" placeholder="Prénom" aria-label="Prénom">
@@ -82,7 +82,7 @@ Bureau / département (1 ou 2 lignes)"></textarea>
         </div>
 
       </div>
-      <dir class="col-md-7 row">
+      <dir class="col-lg-7 row">
       <!-- ================ RESULTATS ================ -->
       <div id="result" v-show="!code" class="col-lg-7">
 <div style="all:initial;display:block;color:#444;">
@@ -106,22 +106,46 @@ Bureau / département (1 ou 2 lignes)"></textarea>
         <button type="button" class="btn m-3" :class="{'btn-success':copied, 'btn-primary':!copied }" @click="copied=true" data-clipboard-text="{{signature}}">{{copied ? "La signature est copiée" : "Copier la signature"}}</button>
       </div>
       <!-- ================ INSTRUCTIONS ================ -->
-      <div class="alert alert-success" v-if="copied">
-          Le code HTML de votre signature a été copié dans le presse-papier. Vous pouvez à présent :
-          <ol>
-            <li>
-              vous rendre dans les paramètres de votre compte <code>{{prenom.toLowerCase()}}.{{nom.toLowerCase()}}@pas-de-calais.gouv.fr</code> du logiciel de courrier,
+      <div v-if="copied">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link" :class="{'active':!web}" href="#" @click="web=false">Courrielleur (Thinderbird)</a>
             </li>
-            <li>
-              coller (<kbd>Ctrl+V</kbd>) le code HTML copié dans le champ « Texte de signature »,
+            <li class="nav-item">
+              <a class="nav-link" :class="{'active':web}" href="#" @click="web=true">Melanie (interface web)</a>
             </li>
-            <li>
-              cocher la case « Utiliser HTML ».
-            </li>
-          </ol>
-            <em>
-              Si présente, la case « Apposer la signature à partir d'un fichier » <b>doit être décochée</b>.
-            </em>
+          </ul>
+          <div class="alert alert-success" v-if="!web">
+            Le code HTML de votre signature a été copié dans le presse-papier. Dans le logiciel Courrielleur, vous pouvez à présent&nbsp;:
+            <ol>
+              <li>
+                vous rendre dans les paramètres de votre compte <code>{{prenom.toLowerCase()}}.{{nom.toLowerCase()}}@pas-de-calais.gouv.fr</code> du logiciel de courrier,
+              </li>
+              <li>
+                décocher la case « Apposer la signature à partir d'un fichier »,
+              </li>
+              <li>
+                cocher la case « Utiliser HTML »,
+              </li>
+              <li>
+                coller (<kbd>Ctrl+V</kbd>) le code HTML dans le champ « Texte de signature ».
+              </li>
+            </ol>
+          </div>
+          <div class="alert alert-success" v-if="web">
+            Le code HTML de votre signature a été copié dans le presse-papier. Dans l'interface web de Melanie, vous pouvez à présent&nbsp;:
+            <ol>
+              <li>
+                vous rendre dans les paramètres de votre compte <code>{{prenom.toLowerCase()}}.{{nom.toLowerCase()}}@pas-de-calais.gouv.fr</code> du logiciel de courrier,
+              </li>
+              <li>
+                cocher la case « Utiliser HTML »,
+              </li>
+              <li>
+                coller (<kbd>Ctrl+V</kbd>) le code HTML dans <b>la partie « code source »</b> du champ « Texte de signature ».
+              </li>
+            </ol>
+          </div>
         </div>
       </dir>
     </div>

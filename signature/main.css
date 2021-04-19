@@ -21,3 +21,21 @@ pre{
       padding: 1rem 2rem;
   }
 }
+.nav-tabs {
+  border-bottom: none;
+}
+.nav-tabs .nav-item {
+  margin-left: .4em;
+  z-index: 100;
+  margin-bottom: -3px;
+}
+.nav-tabs .nav-item .nav-link.active {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  font-weight: bold;
+  border-bottom: none;
+}
+.alert-success kbd {
+  background-color: #797;
+}
